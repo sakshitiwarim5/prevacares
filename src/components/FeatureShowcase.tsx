@@ -63,7 +63,7 @@ export default function FeatureShowcase() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center h-full">
               {/* Left: Text content + arrows */}
               <div className="flex flex-col justify-center gap-6">
-                <p className="text-sm font-medium text-brand-600">
+                <p className="text-xl font-bold text-brand-600">
                   Feature No.{active + 1} -
                 </p>
                 <h2 className="text-xl md:text-2xl font-bold text-gray-900">
@@ -74,19 +74,22 @@ export default function FeatureShowcase() {
                     <li key={idx}>{pt}</li>
                   ))}
                 </ul>
-
                 <div className="flex items-center gap-4 mt-6">
                   <button
                     aria-label="Previous feature"
                     onClick={goLeft}
-                    className="flex items-center justify-center w-10 h-10 rounded-full border border-brand-600 text-brand-600 hover:bg-brand-600 hover:text-white shadow-md transition transform hover:scale-105"
+                    className="flex items-center justify-center w-10 h-10 rounded-full bg-white text-brand-600 hover:bg-brand-600 hover:text-white  transition transform hover:scale-105"
                   >
                     ←
                   </button>
+
+                  {/* Divider line between arrows */}
+                  <span className="h-6 w-0.5 bg-brand-600"></span>
+
                   <button
                     aria-label="Next feature"
                     onClick={goRight}
-                    className="flex items-center justify-center w-10 h-10 rounded-full border border-brand-600 text-brand-600 hover:bg-brand-600 hover:text-white shadow-md transition transform hover:scale-105"
+                    className="flex items-center justify-center w-10 h-10 rounded-full bg-white text-brand-600 hover:bg-brand-600 hover:text-white  transition transform hover:scale-105"
                   >
                     →
                   </button>
@@ -106,8 +109,13 @@ export default function FeatureShowcase() {
               </div>
 
               {/* Right: clickable features */}
-              <div className="flex justify-start lg:justify-end">
-                <ol className="flex flex-col gap-4">
+              <div className="flex flex-col justify-start lg:justify-end">
+                {/* Heading above the list */}
+                <h3 className="text-xl font-bold text-gray-900 mb-20">
+                  Feature Showcase
+                </h3>
+
+                <ol className="flex flex-col gap-6">
                   {features.map((f, i) => {
                     const isActive = i === active;
                     return (
